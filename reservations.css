@@ -130,15 +130,10 @@ table th {
     width: 200px;
 }
 
-.success{
-    color: #E30613;
-    font-weight: bold;
-    font-size: 20px;
-}
-
 footer{
     background-color: #000000;
     height: 124px;
     color: #7A7A7A;
     text-align: center;
 }
+

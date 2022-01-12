@@ -72,7 +72,12 @@ mysqli_close($db);
     <a class="button" href="reservations.php">Terug</a>
 </section>
 <footer>
-    <p>© 2018 – 2022 Restaurant Yashima</p>
+    <div>
+        <a href="logout.php">Uitloggen</a>
+    </div>
+    <div>
+        © 2018 – 2022 Restaurant Yashima
+    </div>
 </footer>
 </body>
 </html>

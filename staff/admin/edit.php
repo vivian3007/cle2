@@ -172,7 +172,12 @@ mysqli_close($db);
     </form>
 </section>
 <footer>
-    <p>© 2018 – 2022 Restaurant Yashima</p>
+    <div>
+        <a href="../../logout.php">Uitloggen</a>
+    </div>
+    <div>
+        © 2018 – 2022 Restaurant Yashima
+    </div>
 </footer>
 </body>
 </html>

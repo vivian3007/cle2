@@ -95,7 +95,7 @@ mysqli_close($db);
 </section>
 <footer>
     <div>
-        <a class="success" href="logout.php">Uitloggen</a>
+        <a href="logout.php">Uitloggen</a>
     </div>
     <div>
         © 2018 – 2022 Restaurant Yashima
