@@ -1,7 +1,7 @@
 <?php
 /* collect the content of the database through database.php */
 /** @var $db */
-require_once "includes/database.php";
+require_once "../includes/database.php";
 
 /* define the variables from the form */
 $name = $people = $phone = $remarks = $date = $time = '';
@@ -68,7 +68,7 @@ mysqli_close($db);
 <head>
     <meta charset="UTF-8">
     <title>Reserveringssysteem</title>
-    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
@@ -77,7 +77,7 @@ mysqli_close($db);
     Bel ons! 078 – 303 8421
 </header>
 <nav>
-    <a id="logo" href="nav_page.php"><img id="yashima-logo" src="yashima-logo.png" alt="logo"></a>
+    <a id="logo" href="nav_page.php"><img id="yashima-logo" src="../includes/yashima-logo.png" alt="logo"></a>
     <a class="nav-button underline" href="nav_page.php">Home</a>
     <a class="nav-button underline" href="nav_page.php">Bezorgen & Afhalen</a>
     <a class="nav-button current underline" href="nav_page.php">Reserveren</a>
@@ -152,7 +152,7 @@ mysqli_close($db);
         </div>
     </form>
 </section>
-<a href="reservations.php">Zie hier alle reserveringen</a>
+<a href="../staff/admin/reservations.php">Zie hier alle reserveringen</a>
 <footer>
     <section>
     <div>

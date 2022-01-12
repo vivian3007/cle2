@@ -49,7 +49,7 @@ mysqli_close($db);
 </head>
 <body>
 <nav>
-    <a id="logo"><img id="yashima-logo" src="../yashima-logo.png" alt="logo"></a>
+    <a id="logo"><img id="yashima-logo" src="../includes/yashima-logo.png" alt="logo"></a>
     <a class="nav-text">Details</a>
 </nav>
 <section>
@@ -69,7 +69,7 @@ mysqli_close($db);
         <li>Opmerkingen: <?= $remarks ?></li>
     </ul>
 </div>
-    <a class="button" href="../reservations.php">Terug</a>
+    <a class="button" href="admin/reservations.php">Terug</a>
 </section>
 <footer>
     <div>

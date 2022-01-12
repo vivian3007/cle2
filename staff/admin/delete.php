@@ -39,14 +39,14 @@ mysqli_close($db);
 <head>
     <title>Reservations</title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="../../reservations.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/reservations.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 <nav>
-    <a id="logo"><img id="yashima-logo" src="../../yashima-logo.png" alt="logo"></a>
+    <a id="logo"><img id="yashima-logo" src="../../includes/yashima-logo.png" alt="logo"></a>
     <a class="nav-text">Verwijderen</a>
 </nav>
 <section class="delete">
@@ -54,12 +54,12 @@ mysqli_close($db);
         <div>
             <p>Deze reservering verwijderen?</p>
             <input class="button" id="submit-button" name="submit" type="submit" value="Ja">
-            <a class="button" href="../../reservations.php">Terug</a>
+            <a class="button" href="reservations.php">Terug</a>
         </div>
 </section>
 <footer>
     <div>
-        <a class="logout" href="../../logout.php">Uitloggen</a>
+        <a class="logout" href="../logout.php">Uitloggen</a>
     </div>
     <div>
         © 2018 – 2022 Restaurant Yashima

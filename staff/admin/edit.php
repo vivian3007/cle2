@@ -107,7 +107,7 @@ mysqli_close($db);
 </head>
 <body>
 <nav>
-    <a id="logo"><img id="yashima-logo" src="../../yashima-logo.png" alt="logo"></a>
+    <a id="logo"><img id="yashima-logo" src="../../includes/yashima-logo.png" alt="logo"></a>
     <a class="nav-text">Wijzigen</a>
 </nav>
 <section>
@@ -167,13 +167,13 @@ mysqli_close($db);
         </div>
         <div>
             <input id="submit-button" name="submit" type="submit" value="Wijzig">
-            <a class="button" href="../../reservations.php">Terug</a>
+            <a class="button" href="reservations.php">Terug</a>
         </div>
     </form>
 </section>
 <footer>
     <div>
-        <a class="logout" href="../../logout.php">Uitloggen</a>
+        <a class="logout" href="../logout.php">Uitloggen</a>
     </div>
     <div>
         © 2018 – 2022 Restaurant Yashima

@@ -4,7 +4,7 @@ if(isset($_POST['submit'])) {
 
     /* collect the content of the database through database.php */
     /** @var $db */
-    require_once "includes/database.php";
+    require_once "../includes/database.php";
 
     $email = mysqli_escape_string($db, $_POST['email']);
     $password = $_POST['password'];
@@ -38,12 +38,12 @@ if(isset($_POST['submit'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/login.css"/>
     <title>Registreren</title>
 </head>
 <body>
 <nav>
-    <a id="logo"><img id="yashima-logo" src="yashima-logo.png" alt="logo"></a>
+    <a id="logo"><img id="yashima-logo" src="../includes/yashima-logo.png" alt="logo"></a>
     <a class="nav-text">Registreren</a>
 </nav>
 <section>
@@ -61,7 +61,7 @@ if(isset($_POST['submit'])) {
     </div>
     <div class="data-submit">
         <input class="button" id="submit-button" type="submit" name="submit" value="Registreren"/>
-        <a class="button" href="staff/login.php">Inloggen</a>
+        <a class="button" href="login.php">Inloggen</a>
     </div>
 </form>
     </section>
