@@ -90,7 +90,7 @@ mysqli_close($db);
     <?php } ?>
     </tbody>
 </table>
-    <a id="new-reservation" class="button" href="../guest/index.php">Maak een nieuwe reservering</a>
+    <a id="new-reservation" class="button" href="create.php">Maak een nieuwe reservering</a>
 </section>
 <footer>
     <div>
