@@ -13,24 +13,51 @@ if(isset($_GET['id'])) {
 }
 
 /* delete the right reservation */
+if(isset($_POST['submit'])) {
+    $queryDeleteReservation = "DELETE FROM reservations WHERE id = '$reservationId'";
 
-$queryDeleteReservation = "DELETE FROM reservations WHERE id = '$reservationId'";
-
-$deleteReservation = mysqli_query($db, $queryDeleteReservation)
+    $deleteReservation = mysqli_query($db, $queryDeleteReservation)
     or die('Error: ' . mysqli_error($db) . 'with query: ' . $queryDeleteReservation);
 
-/* delete the right guest */
+    /* delete the right guest */
 
-$queryDeleteGuest = "DELETE FROM guests WHERE id = '$guestId'";
+    $queryDeleteGuest = "DELETE FROM guests WHERE id = '$guestId'";
 
-$deleteGuest = mysqli_query($db, $queryDeleteGuest)
-or die('Error: ' . mysqli_error($db) . 'with query: ' . $queryDeleteGuest);
+    $deleteGuest = mysqli_query($db, $queryDeleteGuest)
+    or die('Error: ' . mysqli_error($db) . 'with query: ' . $queryDeleteGuest);
 
+    header('Location: reservations.php');
+    exit;
+}
 
 /* close connection to the database */
 mysqli_close($db);
-
-header('Location: reservations.php');
-exit;
 ?>
+
+<!doctype html>
+<html lang="nl">
+<head>
+    <title>Reservations</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="reservations.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+    <a id="logo"><img id="yashima-logo" src="yashima-logo.png" alt="logo"></a>
+    <a class="nav-text">Verwijderen</a>
+</nav>
+<section>
+    <form action="" method="post" id="reservation">
+        <div>
+            <p>Deze reservering verwijderen?</p>
+            <input class="button" id="submit-button" name="submit" type="submit" value="Ja">
+            <a class="button" href="reservations.php">Terug</a>
+        </div>
+</section>
+</body>
+</html>
+
 
