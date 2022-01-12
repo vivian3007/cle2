@@ -1,7 +1,7 @@
 <?php
 /* collect the content of the database through database.php */
 /** @var $db */
-require_once "includes/database.php";
+require_once "../../includes/database.php";
 
 /* see if there's an id to get the details of one specific reservation */
 if(isset($_GET['id'])) {

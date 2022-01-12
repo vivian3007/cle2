@@ -70,7 +70,7 @@ mysqli_close($db);
                     } else{
                         echo "";
                     } ?></td>
-                <td class="link"><a href="details.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Details</a></td>
+                <td class="link"><a href="staff/details.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Details</a></td>
                 <td>
                     <form action="" method="post" id="checkbox">
                         <div>

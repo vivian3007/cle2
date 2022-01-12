@@ -9,7 +9,7 @@ if(isset($_SESSION['loggedInUser'])) {
 
 /* collect the content of the database through database.php */
 /** @var $db */
-require_once "includes/database.php";
+require_once "../includes/database.php";
 
 if (isset($_POST['submit'])) {
     $email = mysqli_escape_string($db, $_POST['email']);
@@ -61,19 +61,19 @@ if (isset($_POST['submit'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="login.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/login.css"/>
     <title>Login</title>
 </head>
 <body>
 <nav>
-    <a id="logo"><img id="yashima-logo" src="yashima-logo.png" alt="logo"></a>
+    <a id="logo"><img id="yashima-logo" src="../yashima-logo.png" alt="logo"></a>
     <a class="nav-text">Inloggen</a>
 </nav>
 <section>
 <h1>Inloggen</h1>
 <?php if ($login) { ?>
     <p>Je bent ingelogd!</p>
-    <p><a class="button" href="logout.php">Uitloggen</a> / <a class="button" href="reservations.php">Reserveringslijst</a></p>
+    <p><a class="button" href="../logout.php">Uitloggen</a> / <a class="button" href="../reservations.php">Reserveringslijst</a></p>
 <?php } else { ?>
     <form action="" method="post">
         <div>
@@ -89,14 +89,14 @@ if (isset($_POST['submit'])) {
         <div>
             <p class="errors"><?= $errors['loginFailed'] ?? '' ?></p>
             <input id="submit-button" class="button" type="submit" name="submit" value="Login"/>
-            <a class="button" href="register.php">Registreren</a>
+            <a class="button" href="../register.php">Registreren</a>
         </div>
     </form>
 <?php } ?>
 </section>
 <footer>
     <div>
-        <a href="logout.php">Uitloggen</a>
+        <a href="../logout.php">Uitloggen</a>
     </div>
     <div>
         © 2018 – 2022 Restaurant Yashima

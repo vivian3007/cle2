@@ -38,7 +38,7 @@ if(isset($_POST['submit'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="login.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
     <title>Registreren</title>
 </head>
 <body>
@@ -61,7 +61,7 @@ if(isset($_POST['submit'])) {
     </div>
     <div class="data-submit">
         <input class="button" id="submit-button" type="submit" name="submit" value="Registreren"/>
-        <a class="button" href="login.php">Inloggen</a>
+        <a class="button" href="staff/login.php">Inloggen</a>
     </div>
 </form>
     </section>

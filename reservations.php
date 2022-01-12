@@ -74,7 +74,7 @@ mysqli_close($db);
                     } else{
                         echo "";
                 } ?></td>
-            <td class="link"><a href="details.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Details</a></td>
+            <td class="link"><a href="staff/details.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Details</a></td>
             <td class="link"><a href="staff/admin/delete.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Verwijder</a></td>
             <td class="link"><a href="staff/admin/edit.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Wijzigen</a></td>
             <td>
