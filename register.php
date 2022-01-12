@@ -65,5 +65,10 @@ if(isset($_POST['submit'])) {
     </div>
 </form>
     </section>
+<footer>
+    <div>
+        © 2018 – 2022 Restaurant Yashima
+    </div>
+</footer>
 </body>
 </html>

@@ -100,7 +100,7 @@ mysqli_close($db);
 <head>
     <meta charset="UTF-8">
     <title>Edit</title>
-    <link rel="stylesheet" type="text/css" href="edit.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/edit.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
@@ -173,7 +173,7 @@ mysqli_close($db);
 </section>
 <footer>
     <div>
-        <a href="../../logout.php">Uitloggen</a>
+        <a class="logout" href="../../logout.php">Uitloggen</a>
     </div>
     <div>
         © 2018 – 2022 Restaurant Yashima

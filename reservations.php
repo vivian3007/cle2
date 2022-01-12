@@ -75,7 +75,7 @@ mysqli_close($db);
                         echo "";
                 } ?></td>
             <td class="link"><a href="details.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Details</a></td>
-            <td class="link"><a href="delete.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Verwijder</a></td>
+            <td class="link"><a href="staff/admin/delete.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Verwijder</a></td>
             <td class="link"><a href="staff/admin/edit.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Wijzigen</a></td>
             <td>
                 <form action="" method="post" id="checkbox">
@@ -94,7 +94,7 @@ mysqli_close($db);
 </section>
 <footer>
     <div>
-        <a href="logout.php">Uitloggen</a>
+        <a class="logout" href="logout.php">Uitloggen</a>
     </div>
     <div>
         © 2018 – 2022 Restaurant Yashima

@@ -80,7 +80,7 @@ section {
     border: 4px solid #E30613;
     border-radius: 8px;
     color: #7A7A7A;
-    padding: 9px 20px 8px 20px;
+    padding: 8px 20px 8px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -100,6 +100,16 @@ section {
     color: #E30613;
     font-weight: bold;
     font-size: 20px;
+}
+
+.logout{
+    color: #7A7A7A;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.logout:hover{
+    color: #E30613;
 }
 
 footer{

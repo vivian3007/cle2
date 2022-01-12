@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
 <h1>Inloggen</h1>
 <?php if ($login) { ?>
     <p>Je bent ingelogd!</p>
-    <p><a href="logout.php">Uitloggen</a> / <a href="reservations.php">Naar de reserveringslijst</a></p>
+    <p><a class="button" href="logout.php">Uitloggen</a> / <a class="button" href="reservations.php">Reserveringslijst</a></p>
 <?php } else { ?>
     <form action="" method="post">
         <div>
@@ -89,10 +89,18 @@ if (isset($_POST['submit'])) {
         <div>
             <p class="errors"><?= $errors['loginFailed'] ?? '' ?></p>
             <input id="submit-button" class="button" type="submit" name="submit" value="Login"/>
-            <!-- <a class="button" href="register.php">Registreren</a> -->
+            <a class="button" href="register.php">Registreren</a>
         </div>
     </form>
 <?php } ?>
 </section>
+<footer>
+    <div>
+        <a href="logout.php">Uitloggen</a>
+    </div>
+    <div>
+        © 2018 – 2022 Restaurant Yashima
+    </div>
+</footer>
 </body>
 </html>
