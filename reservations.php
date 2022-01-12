@@ -91,7 +91,6 @@ mysqli_close($db);
     </tbody>
 </table>
     <a id="new-reservation" class="button" href="index.php">Maak een nieuwe reservering</a>
-    <a href="login.php">Login</a>
 </section>
 <footer>
     <div>
