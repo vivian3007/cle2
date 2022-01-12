@@ -1,0 +1,116 @@
+
+nav{
+    height: 124px;
+    background-color: #000000;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#yashima-logo{
+    width: 30%;
+    margin-top: 27px;
+    margin-left: 15%;
+}
+
+nav a #logo{
+    padding: 0;
+}
+
+.nav-text{
+    color: #FFFFFF;
+    font-size: 50px;
+    margin-right: 80px;
+    margin-top: 20px;
+}
+
+header{
+    background-color: #000000;
+    height: 20px;
+    color: #FFFFFF;
+    padding-left: 8%;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+body{
+    background-color: #f8f8f8;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #7A7A7A;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 1.8;
+    width: 100%;
+}
+
+h1{
+    font-size: 59px;
+    color: #54595F;
+    margin-bottom: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+section {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 70px;
+}
+
+.link{
+    text-align: center;
+}
+
+.link a{
+    color: #54595F;
+    text-decoration: none;
+}
+
+.link a:hover{
+    color: #E30613;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table td, table th {
+    padding: 8px;
+}
+
+table tr:nth-child(odd){background-color: #EBEBEB;}
+
+table th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: left;
+    font-size: 20px;
+    color: #E30613;
+    background-color: #f8f8f8
+}
+
+.button{
+    background-color: #f8f8f8;
+    border: 4px solid #E30613;
+    border-radius: 8px;
+    color: #7A7A7A;
+    padding: 3px 20px 3px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #E30613;
+    color: #FFFFFF;
+}
+
+footer{
+    background-color: #000000;
+    height: 124px;
+    color: #7A7A7A;
+    text-align: center;
+}
