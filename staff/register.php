@@ -25,7 +25,7 @@ if(isset($_POST['submit'])) {
         or die('Db Error: '.mysqli_error($db).' with query: '.$query);
 
         if ($result) {
-            header('Location: login.php');
+            header('Location: index.php');
             exit;
         }
     }
@@ -61,7 +61,7 @@ if(isset($_POST['submit'])) {
     </div>
     <div class="data-submit">
         <input class="button" id="submit-button" type="submit" name="submit" value="Registreren"/>
-        <a class="button" href="login.php">Inloggen</a>
+        <a class="button" href="index.php">Inloggen</a>
     </div>
 </form>
     </section>

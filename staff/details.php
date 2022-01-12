@@ -69,7 +69,7 @@ mysqli_close($db);
         <li>Opmerkingen: <?= $remarks ?></li>
     </ul>
 </div>
-    <a class="button" href="admin/reservations.php">Terug</a>
+    <a class="button" href="../admin/reservations.php">Terug</a>
 </section>
 <footer>
     <div>

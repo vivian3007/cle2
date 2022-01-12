@@ -70,29 +70,29 @@ if (isset($_POST['submit'])) {
     <a class="nav-text">Inloggen</a>
 </nav>
 <section>
-<h1>Inloggen</h1>
-<?php if ($login) { ?>
-    <p>Je bent ingelogd!</p>
-    <p><a class="button" href="logout.php">Uitloggen</a> / <a class="button" href="admin/reservations.php">Reserveringslijst</a></p>
-<?php } else { ?>
-    <form action="" method="post">
-        <div>
-            <label for="email">Email</label><br>
-            <input class="input" id="email" type="text" name="email" value="<?= $email ?? '' ?>"/>
-            <span class="errors"><?= $errors['email'] ?? '' ?></span>
-        </div>
-        <div>
-            <label for="password">Wachtwoord</label><br>
-            <input class="input" id="password" type="password" name="password" />
-            <span class="errors"><?= $errors['password'] ?? '' ?></span>
-        </div>
-        <div>
-            <p class="errors"><?= $errors['loginFailed'] ?? '' ?></p>
-            <input id="submit-button" class="button" type="submit" name="submit" value="Login"/>
-            <a class="button" href="register.php">Registreren</a>
-        </div>
-    </form>
-<?php } ?>
+    <h1>Inloggen</h1>
+    <?php if ($login) { ?>
+        <p>Je bent ingelogd!</p>
+        <p><a class="button" href="../staff/logout.php">Uitloggen</a> / <a class="button" href="../admin/reservations.php">Reserveringslijst</a></p>
+    <?php } else { ?>
+        <form action="" method="post">
+            <div>
+                <label for="email">Email</label><br>
+                <input class="input" id="email" type="text" name="email" value="<?= $email ?? '' ?>"/>
+                <span class="errors"><?= $errors['email'] ?? '' ?></span>
+            </div>
+            <div>
+                <label for="password">Wachtwoord</label><br>
+                <input class="input" id="password" type="password" name="password" />
+                <span class="errors"><?= $errors['password'] ?? '' ?></span>
+            </div>
+            <div>
+                <p class="errors"><?= $errors['loginFailed'] ?? '' ?></p>
+                <input id="submit-button" class="button" type="submit" name="submit" value="Login"/>
+                <a class="button" href="../staff/register.php">Registreren</a>
+            </div>
+        </form>
+    <?php } ?>
 </section>
 <footer>
     <div>

@@ -1,7 +1,7 @@
 <?php
 /* collect the content of the database through database.php */
 /** @var $db */
-require_once "../../includes/database.php";
+require_once "../includes/database.php";
 
 /* show all the content in table reservations and the guests that match the reservations */
 $queryReservations = "SELECT *, reservations.id as reservations_id, guests.id as guests_id FROM reservations INNER JOIN guests on reservations.guest_id = guests.id ORDER BY date, time";
@@ -30,14 +30,14 @@ mysqli_close($db);
 <head>
     <title>Reservations</title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="../../css/reservations.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reservations.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 <nav>
-    <a id="logo" href="reservations.php"><img id="yashima-logo" src="../../includes/yashima-logo.png" alt="logo"></a>
+    <a id="logo" href="reservations.php"><img id="yashima-logo" src="../includes/yashima-logo.png" alt="logo"></a>
     <a class="nav-text">Reserveringen</a>
 </nav>
 <section>
@@ -74,7 +74,7 @@ mysqli_close($db);
                     } else{
                         echo "";
                 } ?></td>
-            <td class="link"><a href="../details.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Details</a></td>
+            <td class="link"><a href="../staff/details.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Details</a></td>
             <td class="link"><a href="delete.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Verwijder</a></td>
             <td class="link"><a href="edit.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Wijzigen</a></td>
             <td>
@@ -90,11 +90,11 @@ mysqli_close($db);
     <?php } ?>
     </tbody>
 </table>
-    <a id="new-reservation" class="button" href="../../guest/index.php">Maak een nieuwe reservering</a>
+    <a id="new-reservation" class="button" href="../guest/index.php">Maak een nieuwe reservering</a>
 </section>
 <footer>
     <div>
-        <a class="logout" href="../logout.php">Uitloggen</a>
+        <a class="logout" href="../staff/logout.php">Uitloggen</a>
     </div>
     <div>
         © 2018 – 2022 Restaurant Yashima
