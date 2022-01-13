@@ -1,4 +1,14 @@
 <?php
+session_start();
+//May I even visit this page?
+if (!isset($_SESSION['loggedInUser'])) {
+    header("Location: login.php");
+    exit;
+}
+if(($_SESSION['loggedInUser']['admin'] == 0)){
+    header("Location: ../inlog/login.php");
+    exit;
+}
 
 if(isset($_POST['submit'])) {
 
@@ -8,6 +18,13 @@ if(isset($_POST['submit'])) {
 
     $email = mysqli_escape_string($db, $_POST['email']);
     $password = $_POST['password'];
+    $admin = mysqli_escape_string($db, $_POST['admin']);
+
+    if($admin == 'ja'){
+        $admin = '1';
+    } elseif($admin == 'nee'){
+        $admin = '0';
+    }
 
     $errors = [];
     if($email == '') {
@@ -16,16 +33,19 @@ if(isset($_POST['submit'])) {
     if($password == '') {
         $errors['password'] = 'Voer een wachtwoord in';
     }
+    if($admin == '') {
+        $errors['admin'] = 'Is deze persoon admin?';
+    }
 
     if(empty($errors)) {
         $password = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
+        $query = "INSERT INTO users (email, password, admin) VALUES ('$email', '$password', '$admin')";
 
         $result = mysqli_query($db, $query)
         or die('Db Error: '.mysqli_error($db).' with query: '.$query);
 
         if ($result) {
-            header('Location: login.php');
+            header('Location: ../inlog/login.php');
             exit;
         }
     }
@@ -59,13 +79,24 @@ if(isset($_POST['submit'])) {
         <input class="input" id="password" type="password" name="password" value="<?= $password ?? '' ?>"/>
         <span class="errors"><?= $errors['password'] ?? '' ?></span>
     </div>
+    <div class="data-field">
+        <label for="admin">Admin?</label><br>
+        <input type="radio" name="admin" id="ja" value="ja">
+        <label for="ja">ja</label><br>
+        <input type="radio" name="admin" id="nee" value="nee">
+        <label for="nee">nee</label><br>
+        <span class="error"><?= $errors['admin'] ?? '' ?></span>
+    </div>
     <div class="data-submit">
         <input class="button" id="submit-button" type="submit" name="submit" value="Registreren"/>
-        <a class="button" href="login.php">Inloggen</a>
+        <a class="button" href="../inlog/login.php">Inloggen</a>
     </div>
 </form>
     </section>
 <footer>
+    <div>
+        <a class="logout" href="../inlog/logout.php">Uitloggen</a>
+    </div>
     <div>
         © 2018 – 2022 Restaurant Yashima
     </div>

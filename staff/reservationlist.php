@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+//May I even visit this page?
+if (!isset($_SESSION['loggedInUser'])) {
+    header("Location: ../inlog/login.php");
+    exit;
+}
+
 /* collect the content of the database through database.php */
 /** @var $db */
 require_once "../includes/database.php";

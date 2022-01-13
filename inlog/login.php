@@ -38,11 +38,17 @@ if (isset($_POST['submit'])) {
 
                 $_SESSION['loggedInUser'] = [
                     'email' => $user['email'],
-                    'id' => $user['id']
+                    'id' => $user['id'],
+                    'admin' => $user['admin']
                 ];
 
-                header('location: ../admin/reservations.php');
-                exit;
+                if($user['admin']){
+                    header('location: ../admin/reservations.php');
+                    exit;
+                } else {
+                    header('location: ../staff/reservationlist.php');
+                    exit;
+                }
             } else {
                 //error onjuiste inloggegevens
                 $errors['loginFailed'] = 'De combinatie van email en wachtwoord is bij ons niet bekend';
@@ -71,16 +77,6 @@ if (isset($_POST['submit'])) {
 </nav>
 <section>
 <h1>Inloggen</h1>
-<?php if ($login) {
-    if($email == "vivian.vlaanderen@hotmail.com"){
-        header('location: ../admin/reservations.php');
-        exit;
-    } else {
-        header('location: ../staff/reservationlist.php');
-        exit;
-    }
-    ?>
-<?php } else { ?>
     <form action="" method="post">
         <div>
             <label for="email">Email</label><br>
@@ -95,10 +91,8 @@ if (isset($_POST['submit'])) {
         <div>
             <p class="errors"><?= $errors['loginFailed'] ?? '' ?></p>
             <input id="submit-button" class="button" type="submit" name="submit" value="Login"/>
-            <a class="button" href="register.php">Registreren</a>
         </div>
     </form>
-<?php } ?>
 </section>
 <footer>
     <div>

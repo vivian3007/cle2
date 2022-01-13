@@ -98,13 +98,13 @@ mysqli_close($db);
     <form action="" method="post" id="reservation">
         <div>
             <label for="date">Kies een datum*</label><br>
-            <input class="input" type="date" id="date" name="date" value="<?= $date ?>" min="<?= date("d/m/Y"); ?>">
+            <input class="input" type="date" id="date" name="date" value="<?= htmlentities($date) ?>" min="<?= date("d/m/Y"); ?>">
             <span class="error"><?= $errors['date'] ?? '' ?></span>
         </div>
         <div>
             <label for="people">Aantal personen* </label><br>
             <p>Bij meer dan 8 personen graag even bellen naar 078–303 8421.</p>
-            <input class="input" type="number" name="people" id="people" max="8" value="<?= $people ?>">
+            <input class="input" type="number" name="people" id="people" max="8" value="<?= htmlentities($people) ?>">
             <span class="error"><?= $errors['people'] ?? '' ?></span>
         </div>
         <div>

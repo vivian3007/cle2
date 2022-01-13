@@ -1,4 +1,15 @@
 <?php
+session_start();
+//May I even visit this page?
+if (!isset($_SESSION['loggedInUser'])) {
+    header("Location: ../inlog/login.php");
+    exit;
+}
+if(($_SESSION['loggedInUser']['admin'] == 0)){
+    header("Location: ../inlog/login.php");
+    exit;
+}
+
 $starttime  = strtotime('17:00');
 $endtime    = strtotime('19:30');
 /* collect the content of the database through database.php */
@@ -175,6 +186,8 @@ mysqli_close($db);
 <footer>
     <div>
         <a class="logout" href="../inlog/logout.php">Uitloggen</a>
+        <span>|</span>
+        <a class="logout" href="register.php">Registreren</a>
     </div>
     <div>
         © 2018 – 2022 Restaurant Yashima
