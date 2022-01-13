@@ -74,7 +74,7 @@ mysqli_close($db);
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <header>
-    Bel ons! 078 – 303 8421
+    <span>Bel ons! <a class="phone-number" href="tel:0783038421">078 – 303 8421</a></span>
 </header>
 <nav>
     <a id="logo" href="nav_page.php"><img id="yashima-logo" src="../includes/yashima-logo.png" alt="logo"></a>
@@ -135,17 +135,17 @@ mysqli_close($db);
         </div>
         <div>
             <label for="name">Voor- en achternaam* </label><br>
-            <input class="input" type="text" name="name" id="name" value="<?= $name ?>">
+            <input class="input" type="text" name="name" id="name" value="<?= htmlentities($name) ?>">
             <span class="error"><?= $errors['name'] ?? '' ?></span>
         </div>
         <div>
             <label for="phone">Mobiele telefoonnummer* </label><br>
-            <input class="input" type="tel" name="phone" id="phone" value="<?= $phone ?>">
+            <input class="input" type="tel" name="phone" id="phone" value="<?= htmlentities($phone) ?>">
             <span class="error"><?= $errors['phone'] ?? '' ?></span>
         </div>
         <div>
             <label for="remarks">Opmerkingen </label><br>
-            <textarea class="input" name="remarks" id="remarks"><?= $remarks ?></textarea>
+            <textarea class="input" name="remarks" id="remarks"><?= htmlentities($remarks) ?></textarea>
         </div>
         <div>
             <input class="button" id="submit-button" name="submit" type="submit" value="Reserveer">

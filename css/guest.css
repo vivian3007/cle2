@@ -117,6 +117,15 @@ section {
     font-size: 20px;
 }
 
+.phone-number{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.phone-number:hover{
+    color: #E30613;
+}
+
 footer{
     background-color: #000000;
     color: #7A7A7A;

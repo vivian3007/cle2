@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <header>
-    Bel ons! 078 – 303 8421
+    <span>Bel ons! <a class="phone-number" href="tel:0783038421">078 – 303 8421</a></span>
 </header>
 <nav>
     <a id="logo" href="nav_page.php"><img id="yashima-logo" src="../includes/yashima-logo.png" alt="logo"></a>
