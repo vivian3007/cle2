@@ -24,15 +24,6 @@ nav a #logo{
     margin-top: 20px;
 }
 
-header{
-    background-color: #000000;
-    height: 20px;
-    color: #FFFFFF;
-    padding-left: 8%;
-    padding-top: 10px;
-    font-size: 12px;
-}
-
 #submit-button{
     margin-top: 10px;
 }
@@ -93,6 +84,7 @@ section {
     font-weight: bold;
     font-size: 20px;
 }
+
 .logout{
     color: #7A7A7A;
     text-decoration: none;
@@ -108,4 +100,5 @@ footer{
     height: 124px;
     color: #7A7A7A;
     text-align: center;
+    margin-top: 30px;
 }

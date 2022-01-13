@@ -55,8 +55,6 @@ if (isset($_POST['submit'])) {
     if ($newReservation && $newGuest) {
         $success = "De nieuwe reservering is toevoegd.";
         $name = $people = $phone = $remarks = $date = $time = '';
-        header('location: ../admin/reservations.php');
-        exit;
     } else {
         $errors['db'] = mysqli_error($db);
     }

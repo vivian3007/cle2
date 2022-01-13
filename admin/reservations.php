@@ -14,14 +14,6 @@ while ($row = mysqli_fetch_assoc($resultReservations)) {
     $reservations[] = $row;
 }
 
-/*
-$check = mysqli_escape_string($db, $_POST['check']);
-
-if($check){
-    include 'peopleInside.css';
-}
-*/
-
 /* close connection to the database */
 mysqli_close($db);
 ?>
@@ -74,10 +66,10 @@ mysqli_close($db);
                     } else{
                         echo "";
                 } ?></td>
-            <td class="link"><a href="../staff/details.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Details</a></td>
+            <td class="link"><a href="details.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Details</a></td>
             <td class="link"><a href="delete.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Verwijder</a></td>
             <td class="link"><a href="edit.php?id=<?= $reservation['reservations_id']?>&name=<?= $reservation['guests_id'] ?>">Wijzigen</a></td>
-            <td>
+            <!--<td>
                 <form action="" method="post" id="checkbox">
                     <div>
                         <input class="checkbox" type="checkbox" name="check" id="check">
@@ -85,7 +77,7 @@ mysqli_close($db);
                     </div>
                     <input type="submit">
                 </form>
-            </td>
+            </td>-->
         </tr>
     <?php } ?>
     </tbody>

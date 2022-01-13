@@ -14,14 +14,6 @@ while ($row = mysqli_fetch_assoc($resultReservations)) {
     $reservations[] = $row;
 }
 
-/*
-$check = mysqli_escape_string($db, $_POST['check']);
-
-if($check){
-    include 'peopleInside.css';
-}
-*/
-
 /* close connection to the database */
 mysqli_close($db);
 ?>
@@ -83,7 +75,6 @@ mysqli_close($db);
         <?php } ?>
         </tbody>
     </table>
-    <a id="new-reservation" class="button" href="../guest/index.php">Maak een nieuwe reservering</a>
 </section>
 <footer>
     <div>

@@ -71,9 +71,10 @@ if (isset($_POST['submit'])) {
 </nav>
 <section>
 <h1>Inloggen</h1>
-<?php if ($login) { ?>
-    <p>Je bent ingelogd!</p>
-    <p><a class="button" href="logout.php">Uitloggen</a> / <a class="button" href="../admin/reservations.php">Reserveringslijst</a></p>
+<?php if ($login) {
+    header('location: reservationlist.php');
+    exit;
+    ?>
 <?php } else { ?>
     <form action="" method="post">
         <div>

@@ -117,7 +117,8 @@ mysqli_close($db);
     if (isset($errors['db'])) {
         echo $errors['db'];
     } elseif (isset($success)) {
-        echo $success;
+        header ('location: reservations.php');
+        exit;
     }
         ?></div>
     <form action="" method="post" id="reservation">

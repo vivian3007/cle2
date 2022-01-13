@@ -75,9 +75,6 @@ mysqli_close($db);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
-<header>
-    Bel ons! 078 – 303 8421
-</header>
 <nav>
     <a id="logo"><img id="yashima-logo" src="../includes/yashima-logo.png" alt="logo"></a>
     <a class="nav-text">Wijzigen</a>
