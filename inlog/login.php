@@ -72,8 +72,13 @@ if (isset($_POST['submit'])) {
 <section>
 <h1>Inloggen</h1>
 <?php if ($login) {
-    header('location: reservationlist.php');
-    exit;
+    if($email == "vivian.vlaanderen@hotmail.com"){
+        header('location: ../admin/reservations.php');
+        exit;
+    } else {
+        header('location: ../staff/reservationlist.php');
+        exit;
+    }
     ?>
 <?php } else { ?>
     <form action="" method="post">
