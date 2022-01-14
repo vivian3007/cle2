@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+/* check if the user had already logged in */
 if(isset($_SESSION['loggedInUser'])) {
     $login = true;
 } else {
@@ -11,10 +12,12 @@ if(isset($_SESSION['loggedInUser'])) {
 /** @var $db */
 require_once "../includes/database.php";
 
+/* check if the form has been submitted and collect the data from the form */
 if (isset($_POST['submit'])) {
     $email = mysqli_escape_string($db, $_POST['email']);
     $password = $_POST['password'];
 
+    /* create errors for every required field */
     $errors = [];
     if($email == '') {
         $errors['email'] = 'Voer een gebruikersnaam in';
@@ -23,36 +26,42 @@ if (isset($_POST['submit'])) {
         $errors['password'] = 'Voer een wachtwoord in';
     }
 
-    if(empty($errors))
-    {
-        //Get record from DB based on first name
-        $query = "SELECT * FROM users WHERE email='$email'";
+    /* check for errors */
+    if(empty($errors)) {
+        /* select the required data from table users */
+        $query = "
+            SELECT * 
+            FROM users 
+            WHERE email='$email'";
         $result = mysqli_query($db, $query);
+        /* check if there's 1 row in the database with this emailadress */
         if (mysqli_num_rows($result) == 1) {
             $user = mysqli_fetch_assoc($result);
-//            echo $user['password']; exit;
-//            var_dump(password_verify($password, $user['password']));exit;
-//            print_r($user);exit;
+            /* check if the combination of username and password is correct */
             if (password_verify($password, $user['password'])) {
                 $login = true;
 
+                /* save the login info of the logged in user in a session */
                 $_SESSION['loggedInUser'] = [
                     'email' => $user['email'],
                     'id' => $user['id'],
                     'admin' => $user['admin']
                 ];
 
+                /* if the user is admin --> send the user to the admin page, if not --> to the staff page */
                 if($user['admin']){
-                    header('location: ../admin/reservations.php');
+                    header('location: ../admin/index.php');
                     exit;
                 } else {
-                    header('location: ../staff/reservationlist.php');
+                    header('location: ../staff/index.php');
                     exit;
                 }
+                /* show error */
             } else {
                 //error onjuiste inloggegevens
                 $errors['loginFailed'] = 'De combinatie van email en wachtwoord is bij ons niet bekend';
             }
+            /* show error */
         } else {
             //error onjuiste inloggegevens
             $errors['loginFailed'] = 'De combinatie van email en wachtwoord is bij ons niet bekend';
@@ -63,12 +72,15 @@ if (isset($_POST['submit'])) {
 <!doctype html>
 <html lang="en">
 <head>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../css/login.css"/>
-    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 <nav>

@@ -107,6 +107,16 @@ section {
     font-size: 20px;
 }
 
+.logout{
+    color: #7A7A7A;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.logout:hover{
+    color: #E30613;
+}
+
 footer{
     background-color: #000000;
     height: 124px;

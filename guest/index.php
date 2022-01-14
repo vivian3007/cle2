@@ -36,7 +36,8 @@ if (isset($_POST['submit'])) {
 
     /* add the required data to the database */
     if (empty($errors)) {
-        $queryGuests = "INSERT INTO guests (name, phone_number)
+        $queryGuests = "
+            INSERT INTO guests (name, phone_number)
             VALUES ('$name', '$phone')";
 
         $newGuest = mysqli_query($db, $queryGuests)
@@ -44,7 +45,8 @@ if (isset($_POST['submit'])) {
 
         $guest_id = mysqli_insert_id($db);
 
-        $queryReservation = "INSERT INTO reservations (date, time, people, guest_id, remarks)
+        $queryReservation = "
+            INSERT INTO reservations (date, time, people, guest_id, remarks)
             VALUES ('$date', '$time', '$people', '$guest_id', '$remarks')";
 
         $newReservation = mysqli_query($db, $queryReservation)
@@ -66,8 +68,11 @@ mysqli_close($db);
 <!doctype html>
 <html lang="nl">
 <head>
+    <title>New reservation</title>
     <meta charset="UTF-8">
-    <title>Reserveringssysteem</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../css/guest.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,7 +97,7 @@ mysqli_close($db);
     if (isset($errors['db'])) {
         echo $errors['db'];
     } elseif (isset($success)) {
-        echo $success;
+        echo htmlentities($success);
     }
         ?></div>
     <form action="" method="post" id="reservation">
@@ -103,7 +108,7 @@ mysqli_close($db);
         </div>
         <div>
             <label for="people">Aantal personen* </label><br>
-            <p>Bij meer dan 8 personen graag even bellen naar 078–303 8421.</p>
+            <p>Bij meer dan 8 personen graag even bellen naar <a class="link" href="tel:0783038421">078 – 303 8421</a>.</p>
             <input class="input" type="number" name="people" id="people" max="8" value="<?= htmlentities($people) ?>">
             <span class="error"><?= $errors['people'] ?? '' ?></span>
         </div>

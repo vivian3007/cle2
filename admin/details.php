@@ -1,12 +1,13 @@
 <?php
 session_start();
-//May I even visit this page?
+
+/* check if you may visit this page */
 if (!isset($_SESSION['loggedInUser'])) {
-    header("Location: ../inlog/login.php");
+    header("Location: ../login/index.php");
     exit;
 }
 if(($_SESSION['loggedInUser']['admin'] == 0)){
-    header("Location: ../inlog/login.php");
+    header("Location: ../login/index.php");
     exit;
 }
 
@@ -19,17 +20,23 @@ if(isset($_GET['id'])) {
     $reservationId = mysqli_escape_string($db, $_GET['id']);
     $guestId = mysqli_escape_string($db, $_GET['name']);
 } else{
-    header('Location: reservations.php');
+    header('Location: index.php');
     exit;
 }
 
 /* show the right reservation from the table reservations */
-$queryReservations = "SELECT * FROM reservations WHERE id = ". $reservationId;
+$queryReservations = "
+    SELECT * 
+    FROM reservations 
+    WHERE id = ". $reservationId;
 $resultReservations = mysqli_query($db, $queryReservations);
 $reservation = mysqli_fetch_assoc($resultReservations);
 
 /* show the right guest from the table guests */
-$queryGuests = "SELECT * FROM guests WHERE id = ". $guestId;
+$queryGuests = "
+    SELECT * 
+    FROM guests 
+    WHERE id = ". $guestId;
 $resultGuests = mysqli_query($db, $queryGuests);
 $guest = mysqli_fetch_assoc($resultGuests);
 
@@ -48,6 +55,7 @@ mysqli_close($db);
 <!doctype html>
 <html lang="en">
 <head>
+    <title>Details</title>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -56,7 +64,6 @@ mysqli_close($db);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
-    <title>Details - <?= $name ?></title>
 </head>
 <body>
 <nav>
@@ -64,27 +71,28 @@ mysqli_close($db);
     <a class="nav-text">Details</a>
 </nav>
 <section>
-<h1>Details - <?= $name ?></h1>
+    <!--show all the content stored in the variables-->
+<h1>Details - <?= htmlentities($name) ?></h1>
 <div>
     <ul>
-        <li>Datum: <?= $date ?></li>
-        <li>Tijd: <?= $time ?></li>
+        <li>Datum: <?= htmlentities($date) ?></li>
+        <li>Tijd: <?= htmlentities($time) ?></li>
         <li>Tafelnummer: <?php if($table == 0) {
                 echo '';
             } else{
-                echo $table;
+                echo htmlentities($table);
             } ?></li>
-        <li>Naam: <?= $name ?></li>
-        <li>Aantal personen: <?= $people ?></li>
-        <li>Telefoonnummer: <?= $phone ?></li>
-        <li>Opmerkingen: <?= $remarks ?></li>
+        <li>Naam: <?= htmlentities($name) ?></li>
+        <li>Aantal personen: <?= htmlentities($people) ?></li>
+        <li>Telefoonnummer: <?= htmlentities($phone) ?></li>
+        <li>Opmerkingen: <?= htmlentities($remarks) ?></li>
     </ul>
 </div>
-    <a class="button" href="reservations.php">Terug</a>
+    <a class="button" href="index.php">Terug</a>
 </section>
 <footer>
     <div>
-        <a class="logout" href="../inlog/logout.php">Uitloggen</a>
+        <a class="logout" href="../login/logout.php">Uitloggen</a>
         <span>|</span>
         <a class="logout" href="register.php">Registreren</a>
     </div>

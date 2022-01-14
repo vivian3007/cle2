@@ -126,6 +126,15 @@ section {
     color: #E30613;
 }
 
+.link{
+    color: #7A7A7A;
+    text-decoration: none;
+}
+
+.link:hover{
+    color: #E30613;
+}
+
 footer{
     background-color: #000000;
     color: #7A7A7A;
