@@ -69,11 +69,7 @@ mysqli_close($db);
                 <td><?php $time = substr($reservation['time'],0,-3);
                     echo htmlentities($time)?></td>
                 <td><?= htmlentities($reservation['name']) ?></td>
-                <td><?php if($reservation['table_number'] == 0) {
-                        echo '';
-                    } else{
-                        echo htmlentities($reservation['table_number']);
-                    }?></td>
+                <td><?= htmlentities($reservation['table_number']) ?></td>
                 <td><?= htmlentities($reservation['people']) ?></td>
                 <td><?= htmlentities($reservation['phone_number']) ?></td>
                 <td><?php if($reservation['remarks'] ==! ''){
@@ -83,14 +79,14 @@ mysqli_close($db);
                     } ?></td>
                     <!--a link to the details page-->
                 <td class="link"><a href="details.php?id=<?= htmlentities($reservation['reservations_id'])?>&name=<?= htmlentities($reservation['guests_id']) ?>">Details</a></td>
-                <td>
+                <!--<td>
                     <form action="" method="post" id="checkbox">
                         <div>
                             <input class="checkbox" type="checkbox" name="check" id="check">
                             <label for="check"></label>
                         </div>
                     </form>
-                </td>
+                </td>-->
             </tr>
         <?php } ?>
         </tbody>

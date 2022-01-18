@@ -104,7 +104,7 @@ if(isset($_POST['submit'])) {
     </div>
     <div class="data-submit">
         <input class="button" id="submit-button" type="submit" name="submit" value="Registreren"/>
-        <a class="button" href="../login/index.php">Inloggen</a>
+        <a class="button" href="index.php">Terug</a>
     </div>
 </form>
     </section>

@@ -11,6 +11,9 @@ if(($_SESSION['loggedInUser']['admin'] == 0)){
     exit;
 }
 
+/* create and define variables */
+$checked = '';
+
 /* collect the content of the database through database.php */
 /** @var $db */
 require_once "../includes/database.php";
@@ -73,11 +76,7 @@ mysqli_close($db);
             <td><?php $time = substr($reservation['time'],0,-3);
                 echo htmlentities($time)?></td>
             <td><?= htmlentities($reservation['name']) ?></td>
-            <td><?php if($reservation['table_number'] == 0) {
-                    echo '';
-                } else{
-                echo htmlentities($reservation['table_number']);
-                }?></td>
+            <td><?= htmlentities($reservation['table_number'])?></td>
             <td><?= htmlentities($reservation['people']) ?></td>
             <td><?= htmlentities($reservation['phone_number']) ?></td>
             <td><?php if($reservation['remarks'] ==! ''){
@@ -89,19 +88,21 @@ mysqli_close($db);
             <td class="link"><a href="details.php?id=<?= htmlentities($reservation['reservations_id'])?>&name=<?= htmlentities($reservation['guests_id']) ?>">Details</a></td>
             <td class="link"><a href="delete.php?id=<?= htmlentities($reservation['reservations_id'])?>&name=<?= htmlentities($reservation['guests_id']) ?>">Verwijder</a></td>
             <td class="link"><a href="edit.php?id=<?= htmlentities($reservation['reservations_id'])?>&name=<?= htmlentities($reservation['guests_id']) ?>">Wijzigen</a></td>
-            <td>
+            <!--<td>
                 <form action="" method="post" id="checkbox">
                     <div>
-                        <input class="checkbox" type="checkbox" name="check" id="check">
+                        <input class="checkbox" type="checkbox" name="check" id="check" <?/*= $checked */?>>
                         <label for="check"></label>
 
                         <script>
-                            const checked = document.querySelector('#check:checked') !== null;
-                            console.log(checked);
+                            if(document.getElementById('check').checked) {
+                                <?php /*$checked = "checked"; */?>
+                            }
                         </script>
                     </div>
+                    <input type="hidden" name="id" value="<?/*= $reservation['reservations_id'] */?>"
                 </form>
-            </td>
+            </td>-->
         </tr>
     <?php } ?>
     </tbody>
