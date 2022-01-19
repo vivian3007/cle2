@@ -6,6 +6,8 @@ require_once "../includes/database.php";
 /* define the variables from the form */
 $name = $people = $phone = $remarks = $date = $time = '';
 $newReservation = $newGuest = '';
+$starttime  = strtotime('17:00');
+$endtime    = strtotime('19:30');
 
 /* check if the form has been submitted and collect the data from the form */
 if (isset($_POST['submit'])) {
@@ -113,29 +115,21 @@ mysqli_close($db);
             <span class="error"><?= $errors['people'] ?? '' ?></span>
         </div>
         <div>
-            <label for="time">Kies een tijd*</label><br>
-            <input type="radio" name="time" id="17:00" value="17:00:00">
-            <label for="17:00">17:00</label><br>
-            <input type="radio" name="time" id="17:15" value="17:15:00">
-            <label for="17:15">17:15</label><br>
-            <input type="radio" name="time" id="17:30" value="17:30:00">
-            <label for="17:30">17:30</label><br>
-            <input type="radio" name="time" id="17:45" value="17:45:00">
-            <label for="17:45">17:45</label><br>
-            <input type="radio" name="time" id="18:00" value="18:00:00">
-            <label for="18:00">18:00</label><br>
-            <input type="radio" name="time" id="18:15" value="18:15:00">
-            <label for="18:15">18:15</label><br>
-            <input type="radio" name="time" id="18:30" value="18:30:00">
-            <label for="18:30">18:30</label><br>
-            <input type="radio" name="time" id="18:45" value="18:45:00">
-            <label for="18:45">18:45</label><br>
-            <input type="radio" name="time" id="19:00" value="19:00:00">
-            <label for="19:00">19:00</label><br>
-            <input type="radio" name="time" id="19:15" value="19:15:00">
-            <label for="19:15">19:15</label><br>
-            <input type="radio" name="time" id="19:30" value="19:30:00">
-            <label for="19:30">19:30</label><br>
+            <label for="time">Tijd*</label><br>
+
+            <!--show the timeslots-->
+            <?php
+            while($starttime <= $endtime) {
+                $label = date('H:i', $starttime);
+                ?>
+                <input type="radio" name="time" id="<?= $label ?>" value="<?= $label ?>" <?= $label == $time ? 'checked' : '' ?>>
+                <label for="<?= $label ?>"><?= $label ?></label><br>
+
+                <?php
+                /*add 15 minutes*/
+                $starttime += 15 * 60;
+            }
+            ?>
             <span class="error"><?= $errors['time'] ?? '' ?></span>
         </div>
         <div>

@@ -88,21 +88,7 @@ mysqli_close($db);
             <td class="link"><a href="details.php?id=<?= htmlentities($reservation['reservations_id'])?>&name=<?= htmlentities($reservation['guests_id']) ?>">Details</a></td>
             <td class="link"><a href="delete.php?id=<?= htmlentities($reservation['reservations_id'])?>&name=<?= htmlentities($reservation['guests_id']) ?>">Verwijder</a></td>
             <td class="link"><a href="edit.php?id=<?= htmlentities($reservation['reservations_id'])?>&name=<?= htmlentities($reservation['guests_id']) ?>">Wijzigen</a></td>
-            <!--<td>
-                <form action="" method="post" id="checkbox">
-                    <div>
-                        <input class="checkbox" type="checkbox" name="check" id="check" <?/*= $checked */?>>
-                        <label for="check"></label>
 
-                        <script>
-                            if(document.getElementById('check').checked) {
-                                <?php /*$checked = "checked"; */?>
-                            }
-                        </script>
-                    </div>
-                    <input type="hidden" name="id" value="<?/*= $reservation['reservations_id'] */?>"
-                </form>
-            </td>-->
         </tr>
     <?php } ?>
     </tbody>

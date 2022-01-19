@@ -77,16 +77,9 @@ mysqli_close($db);
                     } else{
                         echo "";
                     } ?></td>
+
                     <!--a link to the details page-->
                 <td class="link"><a href="details.php?id=<?= htmlentities($reservation['reservations_id'])?>&name=<?= htmlentities($reservation['guests_id']) ?>">Details</a></td>
-                <!--<td>
-                    <form action="" method="post" id="checkbox">
-                        <div>
-                            <input class="checkbox" type="checkbox" name="check" id="check">
-                            <label for="check"></label>
-                        </div>
-                    </form>
-                </td>-->
             </tr>
         <?php } ?>
         </tbody>
